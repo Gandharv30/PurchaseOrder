@@ -11,12 +11,21 @@
 
 <div align="center">
 
-<table>
-<form action="regUser"  method="post modelAttribute="userObj">
+
+	<form action="regUser"  method="post">
+		<table>
+
+
+		<tr>
+		<td>
+		Name: <input type="text" id="userName" name="userName" >
+		</td>
+		</tr>
+
 <tr>
 
 <td>
-Name: <input type="text" id="userName" name="userName" required>
+Email: <input type="text" id="email" name="email" >
 
 </td>
 </tr>
@@ -24,7 +33,7 @@ Name: <input type="text" id="userName" name="userName" required>
 <tr>
 
 <td>
-Email: <input type="text" id="email" name="email" required>
+password: <input type="password" id="userPassword" name="userPassword" >
 
 </td>
 </tr>
@@ -32,22 +41,14 @@ Email: <input type="text" id="email" name="email" required>
 <tr>
 
 <td>
-password: <input type="password" id="userPassword" name="userPassword" required>
-
-</td>
-</tr>
-
-<tr>
-
-<td>
-Address: <input type="text" id="addressLine" name="addressLine" required>
+Address: <input type="text" id="addressLine" name="addressLine" >
 
 </td>
 </tr>
 <tr>
 
 <td>
-Mobile Number: <input type="text" id="mobileNumber" name="mobileNumber" required>
+Mobile Number: <input type="text" id="mobileNumber" name="mobileNumber" >
 
 </td>
 </tr>
@@ -59,9 +60,9 @@ Mobile Number: <input type="text" id="mobileNumber" name="mobileNumber" required
 
 </tr>
 
-</form>
 </table>
 
+</form>
 </div>
 
 </body>

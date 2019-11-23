@@ -2,10 +2,9 @@ package com.iris.daosImpl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +21,7 @@ public class UserDaosImpl implements UserDao {
 	public boolean registerUser(User userObj) {
 		try {
 			
-			System.out.println("I m in register User method...");
+			
 			Session session = sessionFactory.getCurrentSession();
 			session.save(userObj);
 			return true;
@@ -42,14 +41,22 @@ public class UserDaosImpl implements UserDao {
 		return null;
 	}
 
-	public User validateUser(String email, String password) {
+	public User validateUser(String email, String userPassword) {
 		try {
 			Session session = sessionFactory.getCurrentSession();
-			User userObj = session.get(User.class, email);
-			if (userObj != null) {
-				if (userObj.getUserPassword().equals(password)) {
-					return userObj;
+			
+			
+			Query query=session.createQuery("from com.iris.models.User where email=:email and userpassword=:password");
+			query.setParameter("email", email);
+			query.setParameter("password", userPassword);
+			List<User> userList=query.list();
+			if (userList!=null ) {
+					return userList.get(0);
 				}
+			
+			else {
+				System.out.println("Invalid id or password");
+				session.close();
 			}
 
 		} catch (Exception e) {

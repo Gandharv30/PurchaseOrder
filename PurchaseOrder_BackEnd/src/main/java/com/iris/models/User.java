@@ -1,84 +1,55 @@
 package com.iris.models;
 
 import java.time.LocalDate;
-import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
-@Table(name="tblUsers")
+@Table(name="user_table")
 public class User {
-	
 	@Id
-	@GeneratedValue
-	@Column(name="User_Id")
-	private int userId;
-	
-	@Column(name="User_Name")
-	private String userName;
-	
-	@Column(name="Mobile_no")
-	private int mobileNumber;
-	@Column(name="Address")
-	private String addressLine;
-	
-	private String email;
-	
-	@Column(name="IsActive")
-	private String IdActiveFlag;
-	
-	@Column(name="RoleId")
-	private int roleId;
-	
-	@Column(name="user_password")
-	private String userPassword;
-	
-	@Column(name="Created_by")
-	private String createdBy;
-	
-	@Column(name="Created_date")
-	private LocalDate createdDate;
-	
-	@Column(name="Updated_date")
-	private LocalDate updatedDate;
-	
-	@Column(name="Updated_by")
-	private String updatedBy;
+    @GeneratedValue
+    private int UserId;
+    
+    private String UserName;
+
+    private String email;
+
+    private String userPassword;
+
+    private String address;
+
+    private long mobileNumber;
+
+    private String IsActive;
+
+    private LocalDate createdDate;
+
+    private String createdBy;
+
+    private String updateBy;
+
+    private LocalDate updatedDate;
+    
+    private String role;
 
 	public int getUserId() {
-		return userId;
+		return UserId;
 	}
 
 	public void setUserId(int userId) {
-		this.userId = userId;
+		UserId = userId;
 	}
 
 	public String getUserName() {
-		return userName;
+		return UserName;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public int getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public void setMobileNumber(int mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
-
-	public String getAddressLine() {
-		return addressLine;
-	}
-
-	public void setAddressLine(String addressLine) {
-		this.addressLine = addressLine;
+		UserName = userName;
 	}
 
 	public String getEmail() {
@@ -89,22 +60,6 @@ public class User {
 		this.email = email;
 	}
 
-	public String getIdActiveFlag() {
-		return IdActiveFlag;
-	}
-
-	public void setIdActiveFlag(String idActiveFlag) {
-		IdActiveFlag = idActiveFlag;
-	}
-
-	public int getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
-	}
-
 	public String getUserPassword() {
 		return userPassword;
 	}
@@ -113,12 +68,28 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
-	public String getCreatedBy() {
-		return createdBy;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public long getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(long mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public String getIsActive() {
+		return IsActive;
+	}
+
+	public void setIsActive(String isActive) {
+		IsActive = isActive;
 	}
 
 	public LocalDate getCreatedDate() {
@@ -129,6 +100,22 @@ public class User {
 		this.createdDate = createdDate;
 	}
 
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getUpdateBy() {
+		return updateBy;
+	}
+
+	public void setUpdateBy(String updateBy) {
+		this.updateBy = updateBy;
+	}
+
 	public LocalDate getUpdatedDate() {
 		return updatedDate;
 	}
@@ -137,23 +124,25 @@ public class User {
 		this.updatedDate = updatedDate;
 	}
 
-	public String getUpdatedBy() {
-		return updatedBy;
+	public String getRole() {
+		return role;
 	}
 
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", mobileNumber=" + mobileNumber + ", addressLine="
-				+ addressLine + ", email=" + email + ", IdActiveFlag=" + IdActiveFlag + ", roleId=" + roleId
-				+ ", userPassword=" + userPassword + ", createdBy=" + createdBy + ", createdDate=" + createdDate
-				+ ", updatedDate=" + updatedDate + ", updatedBy=" + updatedBy + "]";
+		return "User [UserId=" + UserId + ", UserName=" + UserName + ", email=" + email + ", userPassword="
+				+ userPassword + ", address=" + address + ", mobileNumber=" + mobileNumber + ", IsActive=" + IsActive
+				+ ", createdDate=" + createdDate + ", createdBy=" + createdBy + ", updateBy=" + updateBy
+				+ ", updatedDate=" + updatedDate + ", role=" + role + "]";
 	}
 
 	
-	
-	
+    
+    
+
+
 }

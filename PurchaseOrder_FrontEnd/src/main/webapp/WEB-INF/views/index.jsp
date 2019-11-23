@@ -1,8 +1,8 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<a href="regUser">Register </a>
-<a href="regUser">Login </a>
+<a href="registrationForm">Register </a>
+<a href="logInUser">Login </a>
 </body>
 
 </html>

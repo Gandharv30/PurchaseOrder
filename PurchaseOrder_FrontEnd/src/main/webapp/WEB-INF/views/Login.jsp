@@ -7,13 +7,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> 
+<div align="center">
+
+<form action="only" method="POST">
+
+<table>
+<tr>
+<td>
+Email:<input type="text" name="email" >
+</td>
+</tr>
+
+<tr>
+<td>
+Password:<input type="text" name ="userPassword" >
+</td>
+</tr>
 
 
-You have been registered. Congratulations!
-</h1>
 
-<a href="login"> Click here to login</a><br/>
-${msg }
+
+
+<tr>
+<td>
+<input type="submit" value="Login">
+</td>
+</tr>
+</table>
+
+</form>
+
+
+</div>
+
 </body>
 </html>

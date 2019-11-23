@@ -3,13 +3,14 @@ package com.iris.serviceDaoImpl;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.codec.multipart.SynchronossPartHttpMessageReader;
+import org.springframework.stereotype.Service;
 
 import com.iris.daos.UserDao;
 import com.iris.models.User;
-import javax.transaction.Transactional;
-import org.springframework.stereotype.Service;
 import com.iris.serviceDao.UserServiceDao;
 
 @Service("userService")
@@ -21,13 +22,13 @@ public class UserServiceDaoImpl implements UserServiceDao {
 
 	public boolean registerUser(User userObj) {
 	 
-	 userObj.setRoleId(1);
-	 userObj.setIdActiveFlag("Y");
+	 userObj.setRole("buyer");
+	 userObj.setIsActive("Y");
 	 userObj.setCreatedBy("System");
 	 userObj.setCreatedDate(LocalDate.now());
 	 
-	 System.out.println("User Obj : "+userObj);
-	 
+	// System.out.println("User Obj : "+userObj);
+	
 	 
 	 boolean b= userDao.registerUser(userObj);
 	 
@@ -42,9 +43,8 @@ public class UserServiceDaoImpl implements UserServiceDao {
 		return false;
 	}
 
-	public User validateUser(String email, String password) {
-	
-		return null;
+	public User validateUser(String email, String userPassword) {
+		return userDao.validateUser(email, userPassword);
 	}
 
 	public List<User> getAllUsers() {

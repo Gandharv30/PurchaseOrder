@@ -10,7 +10,7 @@
 <h1>
 Please Sign in or Sign up
 </h1>
-<a href="RegisterForm.jsp">Register</a>
+<a href="RegisterForm">Register</a>
 <a href="loginUser">Login</a>
 </body>
 </html>

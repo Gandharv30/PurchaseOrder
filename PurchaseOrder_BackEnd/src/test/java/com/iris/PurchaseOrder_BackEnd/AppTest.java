@@ -33,14 +33,14 @@ public class AppTest {
 	User userObj=new User();
 	userObj.setUserId(10);
 	userObj.setUserName("Gandharv");
-	userObj.setAddressLine("BA 336 TAGORE GARDEN NEW DELHI");
+	userObj.setAddress("BA 336 TAGORE GARDEN NEW DELHI");
 	userObj.setEmail("pathakgandharv@gmail.com");
 	userObj.setUserPassword("abcd");
 	userObj.setMobileNumber(99999);
 	userObj.setCreatedDate(LocalDate.now());
 	userObj.setCreatedBy("system");
-	userObj.setRoleId(1);
-	userObj.setIdActiveFlag("Y");
+	userObj.setRole("buyer");
+	userObj.setIsActive("Y");
 	
 	System.out.println(userObj);
 	
