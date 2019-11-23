@@ -38,8 +38,10 @@ public class ProductsDaoImpl implements ProductDao {
 	public List<Products> viewAllProducts() {
 		try {
 			Session session = sessionFactory.getCurrentSession();
-			Query q = session.createQuery("from com.project.models.Products");
+			Query q = session.createQuery("from com.iris.models.Products");
+			System.out.println("Select all query running ");
 			List<Products> productList = q.list();
+			System.out.println("Select all query finished");
 			return productList;
 			}
 			catch (Exception e) {
@@ -54,6 +56,7 @@ public class ProductsDaoImpl implements ProductDao {
                     try {
                                     Session session = sessionFactory.getCurrentSession();
                                     session.delete(productObj);
+                                    
                                     return true;
                     } catch (Exception e) {
                                     e.printStackTrace();

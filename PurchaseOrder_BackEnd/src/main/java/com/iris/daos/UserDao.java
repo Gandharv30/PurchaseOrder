@@ -9,5 +9,6 @@ public interface UserDao {
 	public boolean deleteUser(User userObj);
 	public User validateUser(String email,String password);
 	public List<User> getAllUsers();
+
 	
 }

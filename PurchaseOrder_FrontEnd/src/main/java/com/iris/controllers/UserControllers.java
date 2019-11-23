@@ -68,15 +68,16 @@ public class UserControllers {
 		if (userObj != null)
 		{
 			System.out.println("User Obj is not null : "+userObj);
-			if (userObj.getRole().equals("buyer")) {
-				return "BuyerPage";
-				
-			}
-			else if (userObj.getRole().equals("seller")) {
-				return "SellerPage";
-			}
-			else if (userObj.getRole().equals("vendor")) {
-				return "VendorPage";
+//			if (userObj.getRole().equals("buyer")) {
+//				return "BuyerPage";
+//				
+//			}
+//			else if (userObj.getRole().equals("seller")) {
+//				return "SellerWelcome";
+//			}
+			//Add Else
+			 if (userObj.getRole().equals("buyer")) {
+				return "VendorWelcome";
 			}
 		}
 		else {
