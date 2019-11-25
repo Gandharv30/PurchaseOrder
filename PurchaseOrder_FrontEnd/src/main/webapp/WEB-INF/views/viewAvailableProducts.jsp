@@ -2,7 +2,6 @@
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,36 +19,31 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-		<h1>View Products</h1>
-		<div >
-<h4>Items</h4>
- <h4> Quantity </h4>
- </div>
-		<table>
-			<tr>
-				<th>Product Id</th>
-				<th>Product Name</th>
-				
-				<th>Product Price</th>
-			</tr>
-			<c:forEach items="${productDetails}" var="pObj">
-			<tr>
-				<td>${pObj.productId}</td>
-				<td>${pObj.productName}</td>
-				
-				<td>${pObj.productPrice}</td>
-			</tr>
-			</c:forEach>
+	<div class="container">
+		<h1 style="color: green;">Product List</h1>
+		
+		<table class="table table-borderless  table table-hover table-dark">
+			<thead>
+				<tr>
+					<th>Product Name</th>
+					<th>Available Quantity</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${productDetails}" var="obj">
+				<tr>
+					<td>
+						${obj.productName}
+					</td>
+					<td>
+						${obj.quantity}
+					</td>
+				</tr>
+	</c:forEach>
+			</tbody>
 		</table>
 
-		 <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-    <c:forEach items="${productDetails}" var="pObj">
-     <li><a href="#">${pObj.productName}</a> </li>
-     </c:forEach>
-    </ul>
-  </div>
+	</div>
 	</body>
 </html>

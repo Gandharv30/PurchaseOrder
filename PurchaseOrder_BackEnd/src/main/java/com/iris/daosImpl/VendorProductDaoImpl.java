@@ -25,6 +25,7 @@ public class VendorProductDaoImpl implements VendorProductDao {
 		try {
 			Session session=sessionFactory.getCurrentSession();
 		    session.saveOrUpdate(vendorProductObj);
+		    System.out.println("vendorProductObj");
 			return true;
 			
 		}
@@ -33,15 +34,36 @@ public class VendorProductDaoImpl implements VendorProductDao {
 		}
 		return false;
 	}
+	
+	public Products getProductById(int productId) {
+		try {
 
-	public VendorProducts checkProductForVendor(int vendorId, int vendorProductId) {try {
+			Session session=sessionFactory.getCurrentSession();
 
+			Products pro=session.get(Products.class,productId);
+
+			return pro;
+
+			}
+
+			catch(Exception e){
+
+				e.printStackTrace();
+
+			}
+		return null;
+	}
+
+
+	public VendorProducts checkProductForVendor(int vendorId, int vendorProductId) {
+		try {
 		Session session=sessionFactory.getCurrentSession();
 
-		Query query=session.createQuery("from com.project.model.VendorProduct where vendorId=:x and productId=:y");
+		Query query=session.createQuery("from com.iris.models.VendorProducts where vendorId=:x and  vendorProductId=:y");
 		query.setParameter("x",vendorId);
 		query.setParameter("y",vendorProductId);
 		List list=query.list();
+		System.out.println("I am in checkProductforVendor "+list);
 		if(list.size()!=0) {
 			return (VendorProducts) list.get(0);
 		}
@@ -56,13 +78,13 @@ public class VendorProductDaoImpl implements VendorProductDao {
 	return null;
 }
 
-	public List<VendorProducts> viewAllProducts(int id) {
+	public List<Products> viewAllProducts(int id) {
 		try {
 			Session session=sessionFactory.getCurrentSession();
-			Query query=session.createQuery("from com.iris.models.VendorProduct");
-			List<VendorProducts> list=query.list();
+			Query query=session.createQuery("from com.iris.models.VendorProducts where vendorId="+id);
 			
-			return list;
+			
+			return query.list();
 			
 		}
 		catch(Exception e) {

@@ -24,11 +24,11 @@ public class UserControllers {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getWelcomePage() {
 
-		return "welcome";
+		return "index";
 	}
 
 	// Get Registration Form
-	@RequestMapping(value = "RegisterForm", method = RequestMethod.GET)
+	@RequestMapping(value = "/RegisterForm", method = RequestMethod.GET)
 	public String getRegistrationForm(ModelMap map) {
 	System.out.println("gsdrfsg");
 		map.addAttribute("userObj", new User());
@@ -47,7 +47,7 @@ public class UserControllers {
 	}
 
 	// Get Login form
-	@RequestMapping(value="loginUser", method = RequestMethod.GET)
+	@RequestMapping(value="/loginUser", method = RequestMethod.GET)
 	public String getLoginForm() {
 
 		return "Login";
@@ -68,6 +68,7 @@ public class UserControllers {
 		if (userObj != null)
 		{
 			System.out.println("User Obj is not null : "+userObj);
+		
 //			if (userObj.getRole().equals("buyer")) {
 //				return "BuyerPage";
 //				
@@ -75,8 +76,9 @@ public class UserControllers {
 //			else if (userObj.getRole().equals("seller")) {
 //				return "SellerWelcome";
 //			}
+			//}
 			//Add Else
-			 if (userObj.getRole().equals("buyer")) {
+				 if (userObj.getRole().equals("buyer")) {
 				return "VendorWelcome";
 			}
 		}

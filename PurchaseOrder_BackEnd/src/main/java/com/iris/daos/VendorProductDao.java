@@ -6,8 +6,13 @@ import com.iris.models.Products;
 import com.iris.models.VendorProducts;
 
 public interface VendorProductDao {
-	//public Products getProductById(int pId) ;
-	public List<VendorProducts> viewAllProducts(int id);
+
+	public List<Products> viewAllProducts(int id);
+
 	public boolean add(VendorProducts vendorProductObj);
-	public VendorProducts checkProductForVendor(int vendorId,int vendorProductId);
+
+	public Products getProductById(int pId);
+
+	public VendorProducts checkProductForVendor(int vendorId, int productId);
+
 }

@@ -6,24 +6,39 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="user_table")
 public class User {
 	@Id
     @GeneratedValue
+    @NotNull 
     private int UserId;
     
-    private String UserName;
+	@NotEmpty
+	@Size(min=4,max=30)
+    private String userName;
 
+	@NotEmpty(message="Not a valid emailId")
+	@Pattern(message = "Invalid email id", regexp = "^.+@.+\\..+$")
     private String email;
 
+	@NotEmpty
+	@Size(min=2,message="password can not be less than 2 characters")
     private String userPassword;
 
+	@NotEmpty(message="can not be empty")
     private String address;
-
-    private long mobileNumber;
-
+	@NotEmpty(message="can not be empty")
+	@Size(min=10,max=10)
+	@Pattern(regexp=("[^0-9](10)"))
+    private String mobileNumber;
+	
     private String IsActive;
 
     private LocalDate createdDate;
@@ -44,12 +59,12 @@ public class User {
 		UserId = userId;
 	}
 
-	public String getUserName() {
-		return UserName;
+	public String getuserName() {
+		return userName;
 	}
 
-	public void setUserName(String userName) {
-		UserName = userName;
+	public void setuserName(String userName) {
+		userName = userName;
 	}
 
 	public String getEmail() {
@@ -76,11 +91,11 @@ public class User {
 		this.address = address;
 	}
 
-	public long getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
@@ -134,7 +149,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [UserId=" + UserId + ", UserName=" + UserName + ", email=" + email + ", userPassword="
+		return "User [UserId=" + UserId + ", userName=" + userName + ", email=" + email + ", userPassword="
 				+ userPassword + ", address=" + address + ", mobileNumber=" + mobileNumber + ", IsActive=" + IsActive
 				+ ", createdDate=" + createdDate + ", createdBy=" + createdBy + ", updateBy=" + updateBy
 				+ ", updatedDate=" + updatedDate + ", role=" + role + "]";

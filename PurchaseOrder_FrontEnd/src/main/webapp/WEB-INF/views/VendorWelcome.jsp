@@ -73,15 +73,15 @@
 
 <div class="navbar">
   <a href="#home">Home</a>
-  <a href="#news">Neews</a>
+  <a href="#news">News</a>
   <div class="dropdown">
   <button class="dropbtn" onclick="myFunction()">Dropdown
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown">
-    <a href="#">View All Products</a>
-    <a href="#">View All Products in stock</a>
-    <a href="#">Update Product stock</a>
+    <a href="viewAllProducts">View All Products</a>
+    <a href="viewAllAvailableProducts">View All Products available in stock</a>
+    <a href="updateProductQuantity">Update Product Stock</a>
   </div>
   </div> 
 </div>

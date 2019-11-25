@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.iris.daos.ProductDao;
 import com.iris.models.Products;
 
-@Repository("ProductDao")
+@Repository("productDao")
 @Transactional
 public class ProductsDaoImpl implements ProductDao {
 	

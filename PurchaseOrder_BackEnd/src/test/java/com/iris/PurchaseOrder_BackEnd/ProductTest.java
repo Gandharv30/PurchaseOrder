@@ -35,6 +35,7 @@ public class ProductTest {
 	}
 	
 	@Test
+	@Ignore
 	public void addProductTest(){
 		Products p=new Products();
 		p.setProductName("Realme X2 Pro");
