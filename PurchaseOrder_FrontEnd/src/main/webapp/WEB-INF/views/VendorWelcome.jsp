@@ -73,7 +73,7 @@
 
 <div class="navbar">
   <a href="#home">Home</a>
-  <a href="#news">News</a>
+  <a href="logout">Logout</a>
   <div class="dropdown">
   <button class="dropbtn" onclick="myFunction()">Dropdown
     <i class="fa fa-caret-down"></i>

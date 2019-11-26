@@ -41,15 +41,6 @@
 			</tr>
 			</c:forEach>
 		</table>
-
-		 <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-    <c:forEach items="${productDetails}" var="pObj">
-     <li><a href="#">${pObj.productName}</a> </li>
-     </c:forEach>
-    </ul>
   </div>
 	</body>
 </html>

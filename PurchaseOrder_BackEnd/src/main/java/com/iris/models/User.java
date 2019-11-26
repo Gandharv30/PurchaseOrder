@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -18,14 +19,15 @@ public class User {
 	@Id
     @GeneratedValue
     @NotNull 
-    private int UserId;
+    private int userId;
     
 	@NotEmpty
-	@Size(min=4,max=30)
+	@Size(min=4,max=30,message="user Name is between 4 and 30")
     private String userName;
 
 	@NotEmpty(message="Not a valid emailId")
 	@Pattern(message = "Invalid email id", regexp = "^.+@.+\\..+$")
+	@Email
     private String email;
 
 	@NotEmpty
@@ -35,8 +37,9 @@ public class User {
 	@NotEmpty(message="can not be empty")
     private String address;
 	@NotEmpty(message="can not be empty")
-	@Size(min=10,max=10)
-	@Pattern(regexp=("[^0-9](10)"))
+	
+	@Size(min=10,max=10,message="mobile no should be 10 no.")
+	
     private String mobileNumber;
 	
     private String IsActive;
@@ -52,19 +55,19 @@ public class User {
     private String role;
 
 	public int getUserId() {
-		return UserId;
+		return userId;
 	}
 
 	public void setUserId(int userId) {
-		UserId = userId;
+		this.userId = userId;
 	}
 
-	public String getuserName() {
+	public String getUserName() {
 		return userName;
 	}
 
-	public void setuserName(String userName) {
-		userName = userName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getEmail() {
@@ -149,7 +152,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [UserId=" + UserId + ", userName=" + userName + ", email=" + email + ", userPassword="
+		return "User [userId=" + userId + ", userName=" + userName + ", email=" + email + ", userPassword="
 				+ userPassword + ", address=" + address + ", mobileNumber=" + mobileNumber + ", IsActive=" + IsActive
 				+ ", createdDate=" + createdDate + ", createdBy=" + createdBy + ", updateBy=" + updateBy
 				+ ", updatedDate=" + updatedDate + ", role=" + role + "]";

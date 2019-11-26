@@ -7,11 +7,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.iris.daos.UserDao;
 import com.iris.models.User;
 
 @Repository("userDao")
+@Transactional
 public class UserDaosImpl implements UserDao {
 	
 	@Autowired
@@ -62,6 +64,27 @@ public class UserDaosImpl implements UserDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+public User gettingSeller() {
+		
+		try {
+
+			Session session=sessionFactory.getCurrentSession();
+			Query query=session.createQuery("from com.iris.models.User where role='Seller'");
+			
+				List<User>list=query.list();	
+			
+			if(list.size()!=0)
+			{
+				
+				return list.get(0);
+	
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 

@@ -36,7 +36,7 @@ public class AppTest {
 	userObj.setAddress("BA 336 TAGORE GARDEN NEW DELHI");
 	userObj.setEmail("pathakgandharv@gmail.com");
 	userObj.setUserPassword("abcd");
-	userObj.setMobileNumber(99999);
+	userObj.setMobileNumber("99999");
 	userObj.setCreatedDate(LocalDate.now());
 	userObj.setCreatedBy("system");
 	userObj.setRole("buyer");
